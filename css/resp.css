@@ -1,0 +1,438 @@
+/* @media (max-width: 768px) {   .navbar {     flex-direction: column;     align-items: stretch;     gap: 10px;   }    .navbar-left {     justify-content: center;   }    .search-box {     order: 3;      width: 100%;     margin: 0;     margin-left: -5px;   }    .navbar-right {     justify-content: center;     gap: 15px;   }    .navbar .navbar-left .logo {     font-size: 18px;   }    .navbar-right i,   .navbar-left i {     font-size: 16px;   }    .guide-btn {     padding: 5px 8px;     font-size: 13px;   } }  @media (max-width: 768px) {   .categories {     justify-content: flex-start;     overflow-x: auto;      gap: 10px;     padding: 10px;     margin: 10px 15px;   }    .categories::-webkit-scrollbar {     display: none;    }    .categories a {     flex: 0 0 auto;      font-size: 14px;     padding: 5px 8px;   } } */ /* responsive.css */ /* ===== تحسينات عامة ===== */
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+} /* ===== تحسينات شريط التنقل الرئيسي ===== */
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 12px 15px;
+  }
+  .search-box {
+    margin: 0 10px;
+    min-width: 150px;
+  }
+}
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .navbar-left {
+    order: 1;
+    flex: 1;
+  }
+  .search-box {
+    order: 3;
+    width: 100%;
+    margin: 10px 0;
+    min-width: unset;
+  }
+  .navbar-right {
+    order: 2;
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+  .navbar .navbar-left .logo {
+    font-size: 18px;
+  }
+  .navbar-left svg,
+  .navbar-right i {
+    width: 18px;
+    height: 18px;
+  }
+  .guide-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 576px) {
+  .navbar-left {
+    gap: 8px;
+  }
+  .navbar-right {
+    gap: 12px;
+  }
+} /* ===== تحسينات القائمة الثانية ===== */
+@media (max-width: 1200px) {
+  .secnavbar ul {
+    gap: 20px;
+  }
+}
+@media (max-width: 992px) {
+  .secnavbar {
+    padding: 8px 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .secnavbar::-webkit-scrollbar {
+    display: none;
+  }
+  .secnavbar ul {
+    gap: 15px;
+    width: max-content;
+  }
+  .secnavbar ul li a {
+    padding: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .mega-menu {
+    width: 90vw;
+    left: 5vw;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .secnavbar ul {
+    gap: 10px;
+  }
+  .secnavbar ul li a {
+    font-size: 13px;
+    padding: 6px;
+  }
+  .mega-menu {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+} /* ===== تحسينات Banner ===== */
+@media (max-width: 1200px) {
+  .banner {
+    height: 450px;
+  }
+  .banner-box {
+    padding: 20px 40px;
+    height: 400px;
+  }
+  .banner-content h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 992px) {
+  .banner {
+    height: 400px;
+    margin: 20px auto;
+  }
+  .banner-box {
+    padding: 20px;
+    height: 350px;
+  }
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .banner-content .text {
+    max-width: 100%;
+  }
+  .banner-content h4 {
+    font-size: 22px;
+  }
+  .banner-content h1 {
+    font-size: 40px;
+  }
+  .banner-content p {
+    font-size: 16px;
+  }
+  .banner-images img {
+    width: 300px;
+    transform: rotate(0);
+    margin-bottom: 0;
+  }
+  .circle-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    height: 350px;
+  }
+  .banner-box {
+    height: 300px;
+    margin: 15px;
+    width: calc(100% - 30px);
+  }
+  .banner-content h4 {
+    font-size: 18px;
+  }
+  .banner-content h1 {
+    font-size: 32px;
+  }
+  .banner-images img {
+    width: 220px;
+  }
+}
+@media (max-width: 576px) {
+  .banner {
+    height: 300px;
+  }
+  .banner-box {
+    height: 260px;
+    padding: 15px;
+  }
+  .banner-content h4 {
+    font-size: 16px;
+  }
+  .banner-content h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+  .banner-content p {
+    font-size: 14px;
+    margin-bottom: -15px;
+  }
+  .banner-images img {
+    width: 180px;
+  }
+  .circle-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  .rev-btn {
+    left: 10px;
+  }
+  .next-btn {
+    right: 10px;
+  }
+} /* ===== تحسينات Info Box ===== */
+@media (max-width: 1200px) {
+  .Box {
+    gap: 30px;
+    padding: 20px;
+  }
+}
+@media (max-width: 992px) {
+  .cont {
+    padding: 20px;
+  }
+  .Box {
+    gap: 20px;
+    justify-content: center;
+  }
+  .content {
+    flex: 0 0 calc(50% - 20px);
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  .aa {
+    margin-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .Box {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .content {
+    flex: 0 0 100%;
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+  .info h3 {
+    font-size: 13px;
+  }
+  .info p {
+    font-size: 9px;
+  }
+} /* ===== تحسينات البطاقات ===== */
+@media (max-width: 1200px) {
+  .card-container {
+    margin: 30px 40px;
+    gap: 15px;
+  }
+  .image-card {
+    width: calc(50% - 15px);
+  }
+}
+@media (max-width: 992px) {
+  .card-container {
+    margin: 25px 20px;
+  }
+}
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    margin: 20px;
+  }
+  .image-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+} /* ===== تحسينات العروض ===== */
+@media (max-width: 1200px) {
+  .ofers {
+    padding: 20px 60px;
+  }
+  .ofer {
+    min-width: calc(33.33% - 15px);
+  }
+}
+@media (max-width: 992px) {
+  .ofers {
+    padding: 20px 40px;
+  }
+  .ofer {
+    min-width: calc(50% - 10px);
+  }
+  .ofers .circle-btn2 {
+    padding: 12px;
+    font-size: 18px;
+  }
+  .ofers .circle-btn2.left {
+    left: 30px;
+  }
+  .ofers .circle-btn2.right {
+    right: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .ofers {
+    padding: 15px 20px;
+  }
+  .ofer {
+    min-width: calc(100% - 10px);
+  }
+  .ofers h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .ofers .circle-btn2 {
+    display: none;
+  }
+  .timer {
+    font-size: 14px;
+  }
+  .discount {
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 576px) {
+  .ofers {
+    padding: 10px 15px;
+  }
+  .ofer img {
+    height: 160px;
+  }
+  .ofer h3 {
+    font-size: 14px;
+  }
+  .pp h2 {
+    font-size: 18px;
+  }
+} /* ===== تحسينات التذييل (Footer) ===== */
+@media (max-width: 1200px) {
+  .footer {
+    padding: 30px;
+    margin-top: 150px;
+  }
+}
+@media (max-width: 992px) {
+  .footer {
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px;
+    margin-top: 100px;
+  }
+  .footer-section {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .payments {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .payments img {
+    width: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 15px;
+    margin-top: 80px;
+  }
+  .footer-section h2 {
+    font-size: 20px;
+  }
+  .payments {
+    flex-wrap: wrap;
+  }
+  .payments img {
+    width: 70px;
+  }
+  .message-box {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .message-box input {
+    width: 100%;
+  }
+} /* ===== تحسينات إضافية للهواتف الصغيرة ===== */
+@media (max-width: 400px) {
+  .navbar-left .logo {
+    font-size: 16px;
+  }
+  .search-box input {
+    font-size: 12px;
+  }
+  .banner-content h1 {
+    font-size: 24px;
+  }
+  .banner-images img {
+    width: 150px;
+  }
+  .footer-section h2 {
+    font-size: 18px;
+  }
+  .social-icons i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+} /* ===== تحسينات للوضع الأفقي على الهواتف ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .banner {
+    height: 280px;
+  }
+  .banner-box {
+    height: 220px;
+  }
+  .banner-content h1 {
+    font-size: 24px;
+  }
+  .banner-images img {
+    width: 150px;
+  }
+} /* ===== تحسينات للوضع الداكن على الأجهزة المحمولة ===== */
+@media (max-width: 768px) {
+  body.dark-mode .search-box {
+    background: #444;
+  }
+  body.dark-mode .categories {
+    background: #333;
+  }
+  body.dark-mode .categories a {
+    color: #ddd;
+  }
+  body.dark-mode .categories a:hover,
+  body.dark-mode .categories a.active {
+    color: #ffd700;
+  }
+}

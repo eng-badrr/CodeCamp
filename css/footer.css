@@ -1,0 +1,62 @@
+/* ===== Footer Section ===== */
+.footer {
+  background-color: #403b97;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  flex-wrap: wrap;
+  margin-top: 200px;
+  font-family: "Segoe UI", sans-serif;
+}
+.footer-section {
+  flex: 1 1 220px;
+  margin: 10px;
+}
+.footer-section h2 {
+  font-size: 24px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.payments img {
+  display: block;
+  background-color: white;
+  border-radius: 8px;
+  margin: 10px 0;
+  width: 100px;
+  padding: 5px 10px;
+}
+.message-box {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+.message-box input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  flex: 1;
+}
+.message-box button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #403b97;
+  font-weight: bold;
+  cursor: pointer;
+}
+.social-icons i {
+  font-size: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.info {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
