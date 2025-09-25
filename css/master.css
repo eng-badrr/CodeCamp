@@ -34,6 +34,7 @@ body {
 
 .navbar-left svg {
   font-size: 18px;
+
   cursor: pointer;
 }
 
@@ -82,7 +83,9 @@ body {
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.navbar a {
+  color: white;
+}
 /* ===== Banner Section ===== */
 .banner {
   display: flex;
@@ -98,7 +101,7 @@ body {
 .banner-box {
   border-radius: 16px;
   background-color: #eee;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.25);
   margin: 30px;
   width: 80%;
@@ -221,7 +224,11 @@ rev-btn {
   flex-wrap: wrap; /* Responsive layout */
   max-width: 1200px;
   border-radius: 12px;
-  background-color: rgb(199, 219, 228);
+  background: linear-gradient(
+    135deg,
+    rgba(137, 207, 240, 1) 0%,
+    rgba(137, 207, 240, 1) 100%
+  );
   border: 1px solid;
 }
 

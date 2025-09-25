@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeCamp</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/resp.css" />
+
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jomhuria&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Sidebar Filters */
+      h6 {
+        font-weight: 600;
+      }
+
+      .form-check-label {
+        font-size: 14px;
+        color: #666;
+      }
+      .card {
+        cursor: pointer;
+      }
+      a.text-primary {
+        font-size: 16px;
+        color: rgba(138, 56, 245, 1) !important;
+        text-decoration: none;
+      }
+
+      /* Category buttons */
+      .btn-group .btn-sm {
+        border: 2px solid rgba(65, 63, 157, 1);
+        margin: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        padding: 5px 25px;
+      }
+
+      .form-check-input {
+        background-color: rgba(217, 217, 217, 1);
+      }
+      .btn-group .btn.active,
+      .btn-group .btn:hover {
+        background-color: rgba(65, 63, 157, 1);
+        color: #fff;
+      }
+
+      /* Offers */
+      .row img {
+        border-radius: 8px;
+        transition: transform 0.2s;
+      }
+      .offers-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 30px;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+      }
+
+      .offers-scroll::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+      }
+
+      .offer-item {
+        flex: 0 0 calc(100% / 2.75); /* 2.5 صورة */
+        scroll-snap-align: start;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .offer-item img {
+        width: 100%;
+        height: 300px;
+        display: block;
+        border-radius: 16px;
+      }
+
+      .row img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Product Cards */
+      .card {
+        border: 1px solid #eee;
+        border-radius: 12px;
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-title {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .sss {
+        margin-bottom: -10px;
+      }
+      .card-body p {
+        margin: 0;
+        font-size: 15px;
+        color: #111;
+      }
+      .s {
+        border: 3px solid rgba(65, 63, 157, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <div class="logo">CodeCamp</div>
+        <a href="index.html" style="color: white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 19v-8.5a1 1 0 0 0-.4-.8l-7-5.25a1 1 0 0 0-1.2 0l-7 5.25a1 1 0 0 0-.4.8V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1"
+            /></svg
+        ></a>
+        <svg
+          class="fa-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9.353 3C5.849 4.408 3 7.463 3 11.47A9.53 9.53 0 0 0 12.53 21c4.007 0 7.062-2.849 8.47-6.353C8.17 17.065 8.14 8.14 9.353 3"
+          />
+        </svg>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="What are you looking for?" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="navbar-right">
+        <a href="cart.html" style="color: white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g fill="none">
+              <path fill="currentColor" d="M18 15H7L5.5 6H21z" />
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.5 3m0 0L7 15h11l3-9z"
+              />
+              <circle
+                cx="8"
+                cy="20"
+                r="1"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+              <circle
+                cx="17"
+                cy="20"
+                r="1"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g></svg
+        ></a>
+
+        <a href="login.html" style="color: white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="8" r="5" />
+              <path d="M20 21a8 8 0 1 0-16 0m16 0a8 8 0 1 0-16 0" />
+            </g></svg
+        ></a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 5c-2 0-6 1.2-6 6v4l-2 2h5m3-12c4.8 0 6 4 6 6v4l2 2h-5M12 5V3M9 17v1c0 1 .6 3 3 3s3-2 3-3v-1m-6 0h6"
+          />
+        </svg>
+        <button class="guide-btn">Guide</button>
+      </div>
+    </div>
+    <div class="secnavbar">
+      <div class="categories">
+        <ul>
+          <li>
+            <a href="#">Kitchen</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Appliances</h3>
+                <a href="#">Microwave</a>
+                <a href="#">Toaster</a>
+                <a href="#">Oven</a>
+                <a href="#">Mixer</a>
+              </div>
+              <div class="column">
+                <h3>Cookware</h3>
+                <a href="#">Pans</a>
+                <a href="#">Pots</a>
+                <a href="#">Utensils</a>
+              </div>
+              <div class="column">
+                <h3>Storage</h3>
+                <a href="#">Containers</a>
+                <a href="#">Jars</a>
+                <a href="#">Racks</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Electronics</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Mobiles</h3>
+                <a href="#">Samsung</a>
+                <a href="#">iPhone</a>
+                <a href="#">Xiaomi</a>
+              </div>
+              <div class="column">
+                <h3>Laptops</h3>
+                <a href="#">Gaming</a>
+                <a href="#">Work</a>
+                <a href="#">2-in-1</a>
+              </div>
+              <div class="column">
+                <h3>Accessories</h3>
+                <a href="#">Headphones</a>
+                <a href="#">Chargers</a>
+                <a href="#">Cables</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Toys</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Action</h3>
+                <a href="#">Avengers</a>
+                <a href="#">Transformers</a>
+              </div>
+              <div class="column">
+                <h3>Learning</h3>
+                <a href="#">Puzzles</a>
+                <a href="#">Lego</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Fashion</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Men</h3>
+                <a href="#">Shirts</a>
+                <a href="#">Shoes</a>
+                <a href="#">Watches</a>
+              </div>
+              <div class="column">
+                <h3>Women</h3>
+                <a href="#">Dresses</a>
+                <a href="#">Handbags</a>
+                <a href="#">Jewelry</a>
+              </div>
+              <div class="column">
+                <h3>Kids</h3>
+                <a href="#">Clothes</a>
+                <a href="#">Shoes</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Kitchen</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Appliances</h3>
+                <a href="#">Microwave</a>
+                <a href="#">Toaster</a>
+                <a href="#">Oven</a>
+                <a href="#">Mixer</a>
+              </div>
+              <div class="column">
+                <h3>Cookware</h3>
+                <a href="#">Pans</a>
+                <a href="#">Pots</a>
+                <a href="#">Utensils</a>
+              </div>
+              <div class="column">
+                <h3>Storage</h3>
+                <a href="#">Containers</a>
+                <a href="#">Jars</a>
+                <a href="#">Racks</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Electronics</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Mobiles</h3>
+                <a href="#">Samsung</a>
+                <a href="#">iPhone</a>
+                <a href="#">Xiaomi</a>
+              </div>
+              <div class="column">
+                <h3>Laptops</h3>
+                <a href="#">Gaming</a>
+                <a href="#">Work</a>
+                <a href="#">2-in-1</a>
+              </div>
+              <div class="column">
+                <h3>Accessories</h3>
+                <a href="#">Headphones</a>
+                <a href="#">Chargers</a>
+                <a href="#">Cables</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Toys</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Action</h3>
+                <a href="#">Avengers</a>
+                <a href="#">Transformers</a>
+              </div>
+              <div class="column">
+                <h3>Learning</h3>
+                <a href="#">Puzzles</a>
+                <a href="#">Lego</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Fashion</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Men</h3>
+                <a href="#">Shirts</a>
+                <a href="#">Shoes</a>
+                <a href="#">Watches</a>
+              </div>
+              <div class="column">
+                <h3>Women</h3>
+                <a href="#">Dresses</a>
+                <a href="#">Handbags</a>
+                <a href="#">Jewelry</a>
+              </div>
+              <div class="column">
+                <h3>Kids</h3>
+                <a href="#">Clothes</a>
+                <a href="#">Shoes</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Kitchen</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Appliances</h3>
+                <a href="#">Microwave</a>
+                <a href="#">Toaster</a>
+                <a href="#">Oven</a>
+                <a href="#">Mixer</a>
+              </div>
+              <div class="column">
+                <h3>Cookware</h3>
+                <a href="#">Pans</a>
+                <a href="#">Pots</a>
+                <a href="#">Utensils</a>
+              </div>
+              <div class="column">
+                <h3>Storage</h3>
+                <a href="#">Containers</a>
+                <a href="#">Jars</a>
+                <a href="#">Racks</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">Electronics</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Mobiles</h3>
+                <a href="#">Samsung</a>
+                <a href="#">iPhone</a>
+                <a href="#">Xiaomi</a>
+              </div>
+              <div class="column">
+                <h3>Laptops</h3>
+                <a href="#">Gaming</a>
+                <a href="#">Work</a>
+                <a href="#">2-in-1</a>
+              </div>
+              <div class="column">
+                <h3>Accessories</h3>
+                <a href="#">Headphones</a>
+                <a href="#">Chargers</a>
+                <a href="#">Cables</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Fashion</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Men</h3>
+                <a href="#">Shirts</a>
+                <a href="#">Shoes</a>
+                <a href="#">Watches</a>
+              </div>
+              <div class="column">
+                <h3>Women</h3>
+                <a href="#">Dresses</a>
+                <a href="#">Handbags</a>
+                <a href="#">Jewelry</a>
+              </div>
+              <div class="column">
+                <h3>Kids</h3>
+                <a href="#">Clothes</a>
+                <a href="#">Shoes</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#">Toys</a>
+            <div class="mega-menu">
+              <div class="column">
+                <h3>Action</h3>
+                <a href="#">Avengers</a>
+                <a href="#">Transformers</a>
+              </div>
+              <div class="column">
+                <h3>Learning</h3>
+                <a href="#">Puzzles</a>
+                <a href="#">Lego</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Sidebar Filters -->
+        <div
+          class="col-md-3 col-lg-2 filter-box s mt-3 px-2"
+          style="height: fit-content"
+        >
+          <div
+            class="d-flex justify-content-between align-items-center mt-3 px-2 sss"
+          >
+            <h6>Filters</h6>
+            <a href="#" class="text-primary small" style="font-size: 16px"
+              >Reset</a
+            >
+          </div>
+          <hr />
+          <!-- Filter Block -->
+          <div class="m-3">
+            <h6 class="text-muted px-1">Filter</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <hr />
+            <h6 class="text-muted">Filter</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <hr />
+            <h6 class="text-muted">Filter</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="filter1" />
+              <label class="form-check-label">Category</label>
+            </div>
+          </div>
+
+          <!-- تقدر تكرر بلوكات الفلتر زي فوق -->
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 col-lg-10 px-5">
+          <!-- Header + Buttons -->
+          <div class="mb-3">
+            <!-- العنوان -->
+            <h5
+              class="mb-2"
+              style="
+                color: rgba(65, 63, 157, 1);
+                font-weight: 700;
+                font-size: 32px;
+              "
+            >
+              Electronics
+            </h5>
+
+            <!-- الأزرار -->
+            <div class="btn-group flex-wrap" role="group">
+              <button
+                class="btn btn-outline-primary btn-sm"
+                style="border-radius: 50px"
+              >
+                All
+              </button>
+              <button
+                class="btn btn-outline-primary btn-sm active"
+                style="border-radius: 50px"
+              >
+                TVs
+              </button>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                style="border-radius: 50px"
+              >
+                TVs
+              </button>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                style="border-radius: 50px"
+              >
+                Tablets
+              </button>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                style="border-radius: 50px"
+              >
+                Phones
+              </button>
+              <button
+                class="btn btn-outline-primary btn-sm"
+                style="border-radius: 50px"
+              >
+                Smart Watch
+              </button>
+            </div>
+          </div>
+
+          <!-- Offers -->
+          <h6 class="mb-3">Offers</h6>
+          <!-- <h6 class="mb-3">Offers</h6> -->
+
+          <div class="offers-scroll mb-4">
+            <div class="offer-item">
+              <img src="assets/tvv.png" alt="Offer" />
+            </div>
+            <div class="offer-item">
+              <img src="assets/tvv.png" alt="Offer" />
+            </div>
+            <div class="offer-item">
+              <img src="assets/tvv.png" alt="Offer" />
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card">
+                <img src="assets/tv.jpg" alt="" />
+                <div class="pp">
+                  <h5 style="font-size: 14px">LG Smart TV ThinQ</h5>
+
+                  <h5 style="position: relative; left: -10px; top: -5px">
+                    120$
+                  </h5>
+                </div>
+                <p style="color: 55”4k; margin-top: -10px">55”4k</p>
+              </div>
+            </div>
+            <!-- كرر الكروت دي لباقي المنتجات -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-section about">
+        <h2>CodeCamp</h2>
+        <p>
+          Your one-stop shop for everything you need. Browse our massive
+          selection of quality products and enjoy a seamless shopping experience
+          with fast, reliable shipping.
+        </p>
+      </div>
+      <div class="footer-section payments">
+        <img src="assets/paypal.png" alt="PayPal" />
+        <img src="assets/visa.png" alt="Visa" />
+        <img src="assets/stripe.png" alt="Stripe" />
+      </div>
+      <div class="footer-section links">
+        <p>About us</p>
+        <p>Privacy policy</p>
+        <p>Terms of services</p>
+        <p>Help Center</p>
+      </div>
+      <div class="footer-section contact">
+        <p>Contact Us</p>
+        <div class="message-box">
+          <input type="text" placeholder="Your Message" />
+          <button>Send</button>
+        </div>
+        <div class="social-icons">
+          <i class="fa-brands fa-whatsapp"></i>
+          <i class="fa-brands fa-facebook"></i> <i class="fa-solid fa-at"></i>
+        </div>
+      </div>
+    </footer>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
