@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/master.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/resp.css" />
+    <link rel="stylesheet" href="css/darkMode.css" />
 
     <link rel="stylesheet" href="css/cart.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,111 +24,6 @@
       href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap"
       rel="stylesheet"
     />
-    <style>
-      /* Sidebar Filters */
-      h6 {
-        font-weight: 600;
-      }
-
-      .form-check-label {
-        font-size: 14px;
-        color: #666;
-      }
-      .card {
-        cursor: pointer;
-      }
-      a.text-primary {
-        font-size: 16px;
-        color: rgba(138, 56, 245, 1) !important;
-        text-decoration: none;
-      }
-
-      /* Category buttons */
-      .btn-group .btn-sm {
-        border: 2px solid rgba(65, 63, 157, 1);
-        margin: 10px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #000;
-        padding: 5px 25px;
-      }
-
-      .form-check-input {
-        background-color: rgba(217, 217, 217, 1);
-      }
-      .btn-group .btn.active,
-      .btn-group .btn:hover {
-        background-color: rgba(65, 63, 157, 1);
-        color: #fff;
-      }
-
-      /* Offers */
-      .row img {
-        border-radius: 8px;
-        transition: transform 0.2s;
-      }
-      .offers-scroll {
-        display: flex;
-        overflow-x: auto;
-        gap: 30px;
-        padding-bottom: 8px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
-      }
-
-      .offers-scroll::-webkit-scrollbar {
-        display: none; /* Chrome, Safari */
-      }
-
-      .offer-item {
-        flex: 0 0 calc(100% / 2.75); /* 2.5 صورة */
-        scroll-snap-align: start;
-        border-radius: 16px;
-        overflow: hidden;
-      }
-
-      .offer-item img {
-        width: 100%;
-        height: 300px;
-        display: block;
-        border-radius: 16px;
-      }
-
-      .row img:hover {
-        transform: scale(1.05);
-      }
-
-      /* Product Cards */
-      .card {
-        border: 1px solid #eee;
-        border-radius: 12px;
-        transition: box-shadow 0.2s, transform 0.2s;
-      }
-
-      .card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .card-title {
-        font-size: 14px;
-        margin-bottom: 6px;
-      }
-      .sss {
-        margin-bottom: -10px;
-      }
-      .card-body p {
-        margin: 0;
-        font-size: 15px;
-        color: #111;
-      }
-      .s {
-        border: 3px solid rgba(65, 63, 157, 1);
-      }
-    </style>
   </head>
   <body>
     <div class="navbar">
@@ -839,6 +736,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/main.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
   </body>

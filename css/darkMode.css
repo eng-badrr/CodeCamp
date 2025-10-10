@@ -35,7 +35,7 @@ body.dark-mode .search-box input {
 }
 
 body.dark-mode .search-box i {
-  color: rgba(52, 152, 219, 1);
+  color: rgb(212, 214, 215);
 }
 body.dark-mode .fa-moon {
   color: #000;
@@ -51,7 +51,7 @@ body.dark-mode .categories {
   box-shadow: 0 4px 12px rgba(40, 67, 106, 1);
 }
 
-body.dark-mode .categories a {
+body.dark-mode .categories a:first-child {
   color: #f5f5f5;
 }
 
@@ -84,6 +84,6 @@ body.dark-mode .footer {
   color: #000;
 }
 
-body.dark-mode .payments img{
+body.dark-mode .payments img {
   background-color: #000;
 }

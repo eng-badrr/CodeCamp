@@ -99,3 +99,80 @@ document.querySelectorAll(".ofers").forEach((section) => {
   // ⚡ Initial check on page load
   updateButtons();
 });
+
+(() => {
+  "use strict";
+  const form = document.getElementById("registerForm");
+  const alertBox = document.getElementById("registerAlert");
+
+  form.addEventListener("submit", function (e) {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      e.stopPropagation();
+      showAlert("Please fill in all required fields ❌", "danger");
+    } else {
+      e.preventDefault(); // prevent page reload
+      showAlert("Registration successful ✅ Redirecting...", "success");
+
+      // redirect after 2 seconds
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000);
+    }
+    form.classList.add("was-validated");
+  });
+
+  function showAlert(message, type) {
+    alertBox.className = `alert alert-${type} text-center`;
+    alertBox.textContent = message;
+    alertBox.classList.remove("d-none");
+  }
+})();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const measurementCards = document.querySelectorAll(".measurement-card");
+  const selectedInfo = document.getElementById("selected-info");
+  const resetBtn = document.getElementById("reset-btn");
+
+  let selectedCard = null;
+
+  measurementCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      if (selectedCard) {
+        selectedCard.classList.remove("selected");
+      }
+
+      this.classList.add("selected");
+      selectedCard = this;
+    });
+  });
+});
+// Quantity Controls Functionality
+
+document.addEventListener("DOMContentLoaded", function () {
+  const decreaseBtn = document.getElementById("decreaseBtn");
+  const increaseBtn = document.getElementById("increaseBtn");
+  const quantityInput = document.getElementById("quantityInput");
+
+  // Decrease quantity
+  decreaseBtn.addEventListener("click", function () {
+    let currentValue = parseInt(quantityInput.value);
+    if (currentValue > 1) {
+      quantityInput.value = currentValue - 1;
+    }
+  });
+
+  // Increase quantity
+  increaseBtn.addEventListener("click", function () {
+    let currentValue = parseInt(quantityInput.value);
+    quantityInput.value = currentValue + 1;
+  });
+
+  // Validate input
+  quantityInput.addEventListener("change", function () {
+    let value = parseInt(this.value);
+    if (isNaN(value) || value < 1) {
+      this.value = 1;
+    }
+  });
+});

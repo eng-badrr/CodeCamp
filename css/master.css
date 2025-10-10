@@ -3,7 +3,7 @@
 /* ===== Global Styles ===== */
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f0f2f5;
+  /* background-color: #f0f2f5; */
   margin: 0;
   overflow-x: hidden;
   padding: 0;
@@ -94,7 +94,6 @@ body {
   margin: 30px auto;
   max-width: 1300px;
   height: 550px;
-  background: #f0f2f5;
   position: relative;
 }
 
@@ -229,7 +228,7 @@ rev-btn {
     rgba(137, 207, 240, 1) 0%,
     rgba(137, 207, 240, 1) 100%
   );
-  border: 1px solid;
+  /* border: 1px solid; */
 }
 
 .cont {
@@ -370,11 +369,15 @@ rev-btn {
   background: rgba(255, 255, 255, 1);
   color: rgba(65, 63, 157, 1);
   font-size: 24px;
-  padding: 15px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ofers .circle-btn2.left {
@@ -389,3 +392,107 @@ rev-btn {
   opacity: 0;
   pointer-events: none;
 }
+
+
+
+/* Quantity Controls Styles */
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 20px 0;
+        direction: ltr;
+        gap: 20px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border: none;
+      }
+
+      .btn-outline-dark {
+        border: 2px solid #2c3e50;
+        color: #2c3e50;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+      }
+
+      .btn-outline-dark:hover {
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      .ss {
+        border-radius: 18px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25) !important;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+      .text-primary ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+      .text-primary li {
+        width: 30px !important;
+        height: 50px !important;
+        font-size: 32px;
+        color: rgba(65, 63, 157, 1) !important;
+      }
+
+      .text-col,
+      .text-primary {
+        position: relative;
+        left: -30px;
+      }
+
+      .measurement-card {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+      .measurement-card.selected {
+        color: rgba(65, 63, 157, 1);
+        border-color: rgba(65, 63, 157, 1);
+      }
+      .cm-value {
+        font-size: 16px;
+      }
+      .nav-tabs {
+        border-bottom: 1px solid #ddd;
+        justify-content: center; /* يخلي التبويبات في النص */
+      }
+
+      .nav-tabs .nav-link {
+        color: #333;
+        border: none;
+        border-bottom: 2px solid transparent;
+        font-weight: 500;
+      }
+
+      .nav-tabs .nav-link.active {
+        color: #000;
+        border-bottom: 2px solid #000;
+        background: none;
+      }
+
+      .ulss {
+        list-style: none;
+        margin-left: -30px;
+      }
+      .ulss li {
+        margin-top: 10px;
+      }
+      .card-img-fixed {
+        width: 100%;
+        max-width: 250px; /* أو أي عرض ثابت */
+        height: 200px; /* الطول الثابت */
+        object-fit: contain; /* عشان الصورة تفضل مظبوطة من غير ما تتقطع */
+      }
