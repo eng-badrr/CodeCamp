@@ -17,6 +17,11 @@
       rel="stylesheet"
     />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
       href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"
       rel="stylesheet"
     />
@@ -379,39 +384,34 @@
                 </div>
               </div>
             </li>
-            <li>
-              <a href="#">Toys</a>
-              <div class="mega-menu">
-                <div class="column">
-                  <h3>Action</h3>
-                  <a href="#">Avengers</a>
-                  <a href="#">Transformers</a>
-                </div>
-                <div class="column">
-                  <h3>Learning</h3>
-                  <a href="#">Puzzles</a>
-                  <a href="#">Lego</a>
-                </div>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
       <!-- ========== Banner Section ========== -->
-      <div class="banner">
-        <div class="circle-btn left">&#10094;</div>
-        <div class="banner-box">
-          <div class="banner-content">
-            <div class="text">
-              <h4>BEST DEAL ONLINE ON SMART WATCHES</h4>
-              <h1>SMART WEARABLE.</h1>
-              <p>UP TO 80% OFF</p>
-            </div>
-            <div class="banner-images"></div>
-          </div>
-        </div>
+      <!-- 🔥 Simple Image Slider -->
+      <div class="slider">
         <div class="circle-btn right">&#10095;</div>
+
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#"
+                ><img src="assets/banner_home1.png" alt="banner3"
+              /></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"
+                ><img src="assets/banner_home2.png" alt="banner4"
+              /></a>
+            </div>
+          </div>
+
+          <!-- نقاط وبأسهم التنقل -->
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="circle-btn left">&#10094;</div>
       </div>
+
       <div class="cont">
         <div class="Box">
           <div class="content">
@@ -623,6 +623,8 @@
         </div>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="./js/main.js"></script>
   </body>
 </html>

@@ -10,44 +10,28 @@ moonIcon.addEventListener("click", () => {
   );
   document.body.classList.toggle("dark-mode");
 });
-
-// 🖼️ Banner slider images
-const images = [
-  "assets/watches.png",
-  "assets/card.png",
-  "assets/card1.png",
-  "assets/shirt.jpg",
-];
-
-let currentIndex = 0;
-const bannerImagesDiv = document.querySelector(".banner-images"); // empty div for images
-
-// ➡️ Banner navigation buttons
-const nextBtn = document.querySelector(".circle-btn.right");
-const prevBtn = document.querySelector(".circle-btn.left");
-
-// 🔄 Update banner with current image
-function updateBanner() {
-  bannerImagesDiv.innerHTML = `<img src="${images[currentIndex]}" alt="banner" />`;
-}
-
-// 👉 Next button (go to next image)
-nextBtn.addEventListener("click", () => {
-  currentIndex++;
-  if (currentIndex >= images.length) currentIndex = 0;
-  updateBanner();
+// إنشاء السلايدر
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  speed: 700,
 });
 
-// 👈 Previous button (go to previous image)
-prevBtn.addEventListener("click", () => {
-  currentIndex--;
-  if (currentIndex < 0) currentIndex = images.length - 1;
-  updateBanner();
+// نربط أزرارك المخصصة بـ swiper
+document.querySelector(".circle-btn.right").addEventListener("click", () => {
+  swiper.slideNext();
 });
 
-// 🚀 Show first image on page load
-updateBanner();
-
+document.querySelector(".circle-btn.left").addEventListener("click", () => {
+  swiper.slidePrev();
+});
 // 🎡 Horizontal scroll logic for each offers section
 document.querySelectorAll(".ofers").forEach((section) => {
   const ofersContainer = section.querySelector(".container");
